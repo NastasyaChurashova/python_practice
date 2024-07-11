@@ -2,17 +2,11 @@
 Дан файл california_housing_train.csv. Определить среднюю стоимость дома , где количество людей от 0 до 500 (population) и сохранить ее в переменную avg.
 Используйте модуль pandas.
 '''
-from pandas import read_csv
+# import pandas as pd
 
-data = read_csv('california_housing_train.csv')
-
-# filtered_data = data[(data['population'] > 0) & (data['population'] < 500)]
-
-# print(filtered_data)
-
-# # avg = filtered_data["median_house_value"].mean()
-
-# # print(avg)
+# df = pd.read_csv('california_housing_train.csv')
+# avg = df[(df['population'] > 0) & (df['population'] < 500)]['median_house_value'].mean()
+# print(avg)
 
 '''
 Дан файл california_housing_train.csv.
@@ -21,16 +15,13 @@ data = read_csv('california_housing_train.csv')
 '''
 import pandas as pd
 
-# Чтение файла
-data = pd.read_csv('california_housing_train.csv')
+df = pd.read_csv('california_housing_train.csv')
 
-# Найти минимальное значение переменной population
-min_population = data['population'].min()
-
-# Отфильтровать строки, где population равно минимальному значению
-min_population_data = data[data['population'] == min_population]
-
-# Найти максимальное значение переменной households среди отфильтрованных строк
-max_households_in_min_population = min_population_data['households'].max()
+max_households_in_min_population =  df[df['population'] == df['population'].min()]['households'].max()
 
 print(max_households_in_min_population)
+
+# 3. Узнать какая максимальная population в зоне
+# минимального значения median_house_value
+
+# print(data[data['median_house_value'] == data['median_house_value'].min()]['population'].max())
